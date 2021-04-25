@@ -4,7 +4,7 @@ const { Post, Comment, User } = require("../models");
 // GET all POSTS for homepage
 router.get("/", async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({
+    const PostData = await Post.findAll({
       include: [
         {
           model: User,
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = PostData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
 // GET one POST
 router.get("/post/:id", async (req, res) => {
   try {
-    const dbPostData = await Post.findByPk(req.params.id, {
+    const PostData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -56,7 +56,7 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
 
-    const post = dbPostData.get({ plain: true });
+    const post = PostData.get({ plain: true });
     res.render("post", { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
