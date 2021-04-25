@@ -3,25 +3,67 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <title>Team Profile</title>
+  <style>
+    body {
+      padding: 4.5rem;
+      margin: 0;
+      background: linear-gradient(90deg, #f7c3eb 0, #b9f0dd 60%);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f862d5;
+    }
+
+    .card {
+      width: 300px;
+      height: auto;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      float: left;
+    }
+
+    .card-header {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f862d5;
+    }
+
+    p {
+      color: #f862d5;
+    }
+
+    a {
+      color: #0db87c;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+  </style>
+  <div class="page-header">
+    <h1>The Tech Blog</h1>
+  </div>
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">The Tech Blog</a>
-      </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>

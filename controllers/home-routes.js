@@ -1,5 +1,3 @@
-// K10 USE THIS AS STARTER CODE TO BUILD OWN HOME ROUTES
-
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 
