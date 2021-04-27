@@ -54,14 +54,14 @@ router.get("/:id", (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const UserData = await User.create({
-      username: req.body.username,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
 
     req.session.save(() => {
       req.session.user_id = UserData.id;
-      req.session.username = UserData.username;
+      req.session.name = UserData.name;
       req.session.loggedIn = true;
 
       res.status(200).json(UserData);
@@ -99,7 +99,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = UserData.id;
-      req.session.username = UserData.username;
+      req.session.name = UserData.name;
       req.session.loggedIn = true;
 
       res

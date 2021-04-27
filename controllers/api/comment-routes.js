@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
       {
         model: User,
         as: "user",
-        attributes: ["username"],
+        attributes: ["name"],
       },
     ],
   })
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
       {
         model: User,
         as: "user",
-        attributes: ["username"],
+        attributes: ["name"],
       },
     ],
   })

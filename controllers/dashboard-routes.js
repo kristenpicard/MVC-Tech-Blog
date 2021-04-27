@@ -11,19 +11,19 @@ router.get("/", withAuth, async (req, res) => {
           model: Comment,
           attributes: [
             "id",
-            "comment_text",
+            "comment_body",
             "post_id",
             "user_id",
             "created_at",
           ],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["name"],
           },
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["name"],
         },
       ],
     });
@@ -47,19 +47,19 @@ router.get("/edit/:id", withAuth, async (req, res) => {
           model: Comment,
           attributes: [
             "id",
-            "comment_text",
+            "comment_body",
             "post_id",
             "user_id",
             "created_at",
           ],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["name"],
           },
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["name"],
         },
       ],
     });
@@ -82,19 +82,19 @@ router.get("/create/", withAuth, async (req, res) => {
           model: Comment,
           attributes: [
             "id",
-            "comment_text",
+            "comment_body",
             "post_id",
             "user_id",
             "created_at",
           ],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["name"],
           },
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["name"],
         },
       ],
     });
