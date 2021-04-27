@@ -1,0 +1,13 @@
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <span><a href="/post/{{id}}">{{title}}</a></span>
+    <span>
+        Posted by {{user.username}} on {{format_date created_at}}
+    </span>
+    <br>
+    <span>
+        {{comments.length}} {{format_plural "comment" comments.length}}
+    </span>
+    <div class="content">
+        <p>{{post_text}}</p>
+    </div>
+</div>
