@@ -1,5 +1,54 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post, Comment } = require("../../models");
+const session = require("express-session");
+
+// GET /api/users
+router.get("/", (req, res) => {
+  // Access our User model and run .findAll() method
+  User.findAll({
+    attributes: { exclude: ["password"] },
+  })
+    .then((UserData) => res.json(UserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET /api/users/1
+router.get("/:id", (req, res) => {
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "post_body", "created_at"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_body", "created_at"],
+        include: {
+          model: Post,
+          attributes: ["title"],
+        },
+      },
+    ],
+  })
+    .then((UserData) => {
+      if (!UserData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(UserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // CREATE new user
 router.post("/", async (req, res) => {
@@ -11,6 +60,8 @@ router.post("/", async (req, res) => {
     });
 
     req.session.save(() => {
+      req.session.user_id = UserData.id;
+      req.session.username = UserData.username;
       req.session.loggedIn = true;
 
       res.status(200).json(UserData);
@@ -47,6 +98,8 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_id = UserData.id;
+      req.session.username = UserData.username;
       req.session.loggedIn = true;
 
       res

@@ -60,7 +60,7 @@
     <header class="display-flex justify-space-between align-center p-2">
       <nav>
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <a href="/">Homepage</a>
         <a href="/dashboard">Dashboard</a>
         <a href="/dashboard/create/">Create Post</a>
@@ -79,9 +79,8 @@
 
     </footer>
   </div>
-
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/public/js/logout.js"></script>
   {{/if}}
 </body>
