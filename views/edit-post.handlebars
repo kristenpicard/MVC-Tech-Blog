@@ -1,0 +1,24 @@
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <a href="/dashboard">Dashboard</a>
+    <h2 class="title mt-5">Edit Post</h2>
+    <form class="edit-post-form">
+        <div>
+            <label for="post-title">Title:</label>
+            <input class="input" name="post-title" type="text" value="{{post.title}}" />
+        </div>
+        <div>
+            <label for="post-content">Body:</label>
+            <input class="textarea" name="post-content" type="text" value="{{post.post_body}}" />
+        </div>
+        <div>
+            Created by you on {{format_date post.created_at}}
+            <a href="/post/{{post.id}}">{{post.comments.length}}</a>
+        </div>
+        <button type="submit">Save Changes</button>
+        <button type="button">Delete Post</button>
+    </form>
+
+    {{> comments post.comments}}
+</div>
+
+<script src="/public/js/post.js"></script>

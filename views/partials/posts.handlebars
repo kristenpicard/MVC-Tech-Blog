@@ -1,13 +1,16 @@
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
     <span><a href="/post/{{id}}">{{title}}</a></span>
+    <br>
+    <br>
     <span>
         Posted by {{user.name}} on {{format_date created_at}}
     </span>
     <br>
-    <span>
-        {{comments.length}} {{format_plural "comment" comments.length}}
-    </span>
+    <br>
     <div class="content">
         <p>{{post_body}}</p>
     </div>
+    <span>
+        {{comments.length}}
+    </span>
 </div>
