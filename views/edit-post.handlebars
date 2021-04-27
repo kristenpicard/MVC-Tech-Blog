@@ -7,15 +7,19 @@
             <input class="input" name="post-title" type="text" value="{{post.title}}" />
         </div>
         <div>
-            <label for="post-content">Body:</label>
-            <input class="textarea" name="post-content" type="text" value="{{post.post_body}}" />
+            <label for="post-body">Body:</label>
+            <input class="input" name="post-body" type="text" value="{{post.post_body}}" />
         </div>
+        <br>
         <div>
             Created by you on {{format_date post.created_at}}
-            <a href="/post/{{post.id}}">{{post.comments.length}}</a>
+            <br>
+            <br>
+            <a href="/post/{{post.id}}">{{post.comments.length}} comments</a>
         </div>
+        <br>
         <button type="submit">Save Changes</button>
-        <button type="button">Delete Post</button>
+        <button type="click" class="delete-post-btn">Delete Post</button>
     </form>
 
     {{> comments post.comments}}

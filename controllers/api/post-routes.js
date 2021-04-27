@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
-    body: req.body.post_body,
+    post_body: req.body.post_body,
     user_id: req.session.user_id,
   })
     .then((PostData) => {
@@ -63,7 +63,7 @@ router.put("/:id", withAuth, (req, res) => {
   Post.update(
     {
       title: req.body.title,
-      body: req.body.post_body,
+      post_body: req.body.post_body,
     },
     {
       where: {

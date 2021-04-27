@@ -1,28 +1,28 @@
-<div>
+<div style="text-align: center; width:40%">
+    <h2>Dashboard</h2>
     <a href="/dashboard/create/">
         <button id="create-post">
             Create New Post
         </button>
     </a>
+
+    <br>
+    <br>
+    <h2>Your Posts:</h2>
 </div>
 
-<h2>Dashboard</h2>
-<h2>Your Posts:</h2>
+{{#if posts.length}}
 
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-    {{#if posts.length}}
+{{#each posts as |post|}}
+{{> posts post}}
+<a href="/dashboard/edit/{{post.id}}">
+    <button>
+        Edit Post
+    </button>
+</a>
+{{/each}}
 
-    {{#each posts as |post|}}
-    {{> posts post}}
-    <a href="/dashboard/edit/{{post.id}}">
-        <button>
-            Edit Post
-        </button>
-    </a>
-    {{/each}}
+{{else}}
+<div>You do not currently have any posts</div>
 
-    {{else}}
-    <div>You do not currently have any posts</div>
-
-    {{/if}}
-</div>
+{{/if}}

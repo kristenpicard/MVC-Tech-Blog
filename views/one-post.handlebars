@@ -1,8 +1,9 @@
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+{{> posts post}}
+<br>
+<br>
+{{#if loggedIn}}
 
-    {{> posts post}}
-
-    {{#if loggedIn}}
+<div>
     <form class="comment-form">
         <div>
             <textarea class="ml-5" name="comment-body"></textarea>
@@ -11,12 +12,12 @@
         <div>
             <button class="button is-warning ml-5 mb-5" type="submit">Add Comment</button>
         </div>
+
     </form>
     {{/if}}
 
     {{> comments post.comments}}
-
-    {{#if loggedIn}}
-    <script src="/public/js/comment.js"></script>
-    {{/if}}
 </div>
+{{#if loggedIn}}
+<script src="/public/js/comment.js"></script>
+{{/if}}
