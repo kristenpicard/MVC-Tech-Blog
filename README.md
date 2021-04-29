@@ -9,6 +9,8 @@ Site visitors can sign up for an account to the blog. Once signed in, they have 
 
 ## Application Depoloyment
 
+Click this link to take you to the deployed app: https://murmuring-ravine-74188.herokuapp.com/
+
 ## Table of Contents
 
 - [License](#license)
@@ -29,7 +31,7 @@ https://github.com/kristenpicard
 
 ## Screenshot
 
-![Demo:](/img/1.gif)
+![](/img/1.png)
 
 ## Questions
 
