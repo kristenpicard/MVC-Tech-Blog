@@ -13,7 +13,13 @@ router.get("/", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["id", "user_id", "post_id", "comment_body"],
+          attributes: [
+            "id",
+            "user_id",
+            "post_id",
+            "comment_body",
+            "created_at",
+          ],
           include: [
             {
               model: User,
@@ -39,6 +45,8 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const PostData = await Post.findByPk(req.params.id, {
+      attributes: ["id", "post_body", "title", "created_at"],
+
       include: [
         {
           model: User,
@@ -46,7 +54,13 @@ router.get("/post/:id", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["id", "user_id", "post_id", "comment_body"],
+          attributes: [
+            "id",
+            "user_id",
+            "post_id",
+            "comment_body",
+            "created_at",
+          ],
           include: [
             {
               model: User,
