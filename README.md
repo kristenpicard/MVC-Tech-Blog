@@ -9,7 +9,7 @@ Site visitors can sign up for an account to the blog. Once signed in, they have 
 
 ## Application Depoloyment
 
-Click this link to take you to the deployed app: https://murmuring-ravine-74188.herokuapp.com/
+Click this link to take you to the deployed app: https://frozen-earth-66671.herokuapp.com/
 
 ## Table of Contents
 
